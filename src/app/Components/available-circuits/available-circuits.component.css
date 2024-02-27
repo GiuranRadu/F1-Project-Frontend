@@ -1,0 +1,171 @@
+.container{
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 30px;
+  gap: 50px;
+  padding-bottom: 200px;
+}
+
+.above-table-div{
+  width: 100%;
+  background-color: #333;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {  
+  border :1px solid #333;  
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #d72626;
+  color:white;  
+}
+
+th:first-child, td:first-child {
+  width: 3%; /* Adjust the width as needed */
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 35%; /* Adjust the width as needed */
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 19%; /* Adjust the width as needed */
+}
+
+th:nth-child(4), td:nth-child(4) {
+  width: 20%; /* Adjust the width as needed */
+}
+
+th:nth-child(5), td:nth-child(5) {
+  width: 8%; /* Adjust the width as needed */
+}
+
+th:nth-child(6), td:nth-child(6) {
+  width: 15%; /* Adjust the width as needed */
+}
+
+tr:hover{
+  background-color: #939393;
+  color:white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.left-side-div{
+  /* background-color: aquamarine; */
+  width: 60%;
+}
+
+.right-side-div{
+  /* background-color: beige; */
+  width: 40%;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff; /* White background color */
+  color: #333; /* Text color for input fields */
+  border: black 2px solid;
+}
+
+
+
+input:disabled {
+  background-color: #ccc; /* Light gray background for disabled input */
+  color: #666; /* Text color for disabled input */
+  cursor: not-allowed;
+}
+
+.add-button{
+  margin-top: 15px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color:#d72626;
+  color:white;
+  font-weight: bold;
+}
+
+.add-button:hover{
+  background-color:#d72626b6;
+}
+
+.editdelete-div{
+  margin-top: 15px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editdelete-div button{
+  margin-top: 10px;
+  width: 200px;
+  height: 40px;
+  border: none;
+}
+
+.edit-button{
+  background-color:gold;
+}
+
+.edit-button:hover{
+  background-color:rgba(159, 136, 8, 0.664);
+}
+
+.delete-button{
+  background-color:#d72626;
+  color:white;
+}
+
+.delete-button:hover{
+  background-color:#d72626b6;
+}
+
+
+.above-table-div{
+  position: relative;
+}
+
+.cancel-button{  
+  background-color: white;
+  color:white;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top : -10px;
+  right: -10px;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.cancel-button:hover{
+  scale: 1.2;
+  transition: 0.5s;
+}

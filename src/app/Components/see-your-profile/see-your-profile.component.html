@@ -1,0 +1,78 @@
+<!-- <button (click)="test()">TEST</button> -->
+<div class="container">
+
+  <!-- .LEFT DIV -->
+  <div class="left-div">
+    <div class="pilot-image-div">
+      <img *ngIf="loggedUser?.picture" [src]="'../../../assets/users/'+ sanitizePicturePath(loggedUser.picture)"
+        alt="pilotPicture">
+      <img *ngIf="!loggedUser?.picture" src="../../../assets/users/none.jpg" alt="pilotPicture">
+    </div>
+    <div class="info-div">
+      <h2>Info</h2>
+      <p>Name: {{loggedUser?.name}}</p>
+      <p>Age: {{loggedUser?.age}}</p>
+      <p>Country: {{loggedUser?.country}}</p>
+      <p *ngIf="loggedUser?.team">Team: {{loggedUser?.team}}</p>
+      <p>Email: {{loggedUser?.email}}</p>
+      <div class="button-div">
+        <button (click)="wannaChangePassword()" #changePasswordButton>Wanna Change Password?</button>
+      </div>
+    </div>
+    <div class="attended-circuits-container" *ngIf="loggedUser?.role === 'limited'">
+      <h3>Attended Circuits</h3>
+      <div class="attended-circuits-div" *ngFor="let circuit of circuitsAttended">
+        <p>{{circuit.name}}</p>
+      </div>
+      <div class="button-div">
+        <button (click)="wannaChangeCircuits()">Wanna Change Circuits?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- .RIGHT DIV -->
+  <div class="right-div" *ngIf="!switch">
+    <div class="form-div">
+      <h2>Complete the field to modify and the press Update</h2>
+      <form [formGroup]="userForm" (ngSubmit)="updateUser()">        
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" formControlName="name">
+        </div>
+
+        <div>
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" formControlName="age">
+        </div>
+
+        <div>
+          <label for="country">Select a country:</label>
+          <select id="country" formControlName="country">
+            <option value="" disabled selected>Select a country</option>
+            <option *ngFor="let country of countryList">{{ country.name }}</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" formControlName="email">
+        </div>
+
+        <div>
+          <label for="picture" class="custom-file-upload">Add Picture</label>
+          <input type="file" id="picture" name="picture" formControlName="picture" (change)="getFile($event)">
+        </div>
+
+        <div class="button-div">
+          <button>Update</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- .RIGHT DIV -->
+  <div class="right-div" *ngIf="switch">
+    <app-forgot-password></app-forgot-password>
+  </div>
+</div>

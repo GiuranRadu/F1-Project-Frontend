@@ -1,0 +1,159 @@
+.container {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 90px 0 0 0;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  min-height: 85vh;
+  width: 80%;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.user-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  min-width: 300px;
+  transition: transform 0.4s ease-in-out;
+  height: 500px;
+  position:relative;
+  /* background-color: red; */
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+}
+
+.pilot-image-div{
+  height: 320px;
+}
+
+.user-photo {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 2px solid #ddd;
+}
+
+.user-info {
+  padding: 20px ;
+  text-align: left;
+}
+
+.user-info h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.user-info p {
+  margin: 8px 0;
+  color: #666;
+}
+
+span{
+  position:absolute;
+  right:0;
+  bottom:0;
+  background-color: #c2c2c2;
+  color:white;
+  font-size: 8px;
+  padding: 2px 6px;
+  border-top-left-radius: 10px;
+}
+
+.circuits-div {
+  display: inline;
+}
+
+.right-div{
+  width: 100%;
+  /* background-color: red; */
+  /* background-color: whitesmoke; */
+  padding: 0 40px;
+}
+
+.right-div h2{
+  background-color: #333;
+  color:white;
+  padding: 5px 10px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  background-color: white;
+}
+
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.button-div button{
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(209, 65, 65);
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px 12px;
+  font-weight: bold;
+}
+
+.button-div button:hover{
+  background-color:red;
+  color: white;
+}
+
+.container2{
+  width: 100%;
+  background-color: white;
+}
+
+.container1{
+  position: relative;
+}
+
+.switchButton{
+  position: absolute;
+  right: 60px;
+  bottom: 150px;
+  background-color: goldenrod;
+  color:white;
+  font-weight: bold;
+  border-radius: 4px;
+  border:none;
+  padding: 10px 20px;
+}
+
+.switchButton:hover{
+  background-color: rgb(218, 225, 4);
+}
+
+.hidden{
+  display: none;
+}

@@ -1,0 +1,61 @@
+<!-- <button (click)="test()">TEST</button> -->
+
+<body>
+
+  <div class="circuitName">
+    <h1>{{circuitStats?.circuitName}}</h1>
+  </div>
+
+  <div class="container">
+    <div class="top-div">
+      <div class="h2-div">
+        <h2>Circuits Stats</h2>
+      </div>
+      <div class="info-div">
+        <div>
+          <p>Number of participants</p>
+          <h3>{{circuitStats?.pilotsAttended}}</h3>
+        </div>
+        <div>
+          <p>Circuit Length</p>
+          <h3>{{circuitInfo?.lapKmLength}}km</h3>
+        </div>
+        <div>
+          <p>Number of laps</p>
+          <h3>{{circuitInfo?.laps}}</h3>
+        </div>
+        <div>
+          <p>Race distance</p>
+          <h3>{{circuitInfo?.circuitLength}}km</h3>
+        </div>
+      </div>
+    </div>
+    <div class="middle-div">
+      <div class="h2-div">
+        <h2>Circuit Map</h2>
+      </div>
+      <div class="imgAndStandings-div">
+        <div class="img-div">
+          <img *ngIf="circuitStats?.circuitName" [src]="'../../../assets/circuits/' + circuitStats?.circuitName + '.png'" alt="This circuit does not have a picture">
+        </div>
+        <div class="standings">
+          <div class="h2-div">
+            <h1>Standings</h1>
+          </div>
+          <div *ngFor="let pilot of circuitStats?.users; let i = index" class="pilots-div">
+            <div class="pilot" (click)="goToPilot(pilot.userId)"
+              [ngClass]="{'gold-background glow': i === 0, 'silver-background': i === 1, 'bronze-background': i === 2}">
+              <div>
+                <p > {{i+1}}. {{pilot.name}}  </p>
+              </div>
+              <div>
+                <span>Time: {{pilot.completionTime}} min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

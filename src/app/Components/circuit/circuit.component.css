@@ -1,0 +1,142 @@
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 234, 3, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 187, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(252, 198, 2, 0.8);
+  }
+}
+
+/* Apply the glowing effect to the element with the 'glow' class */
+.glow {
+  animation: glowing 3s infinite; /* Adjust the duration and other properties as needed */
+}
+
+body{
+  background-color: #dfdfdf;
+  min-height: 100vh;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+  /* background-color: #dbdbdb; */
+}
+
+.circuitName{
+  width: 100%;
+  background-color: #333;
+  color:white;
+  padding: 5px;
+  text-align: center;
+}
+
+.top-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: beige !important; */
+  height: 100px;
+}
+
+.h2-div {
+  border-bottom: 4px #333 solid;
+  padding: 10px 20px;
+}
+
+
+.info-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.info-div div {
+  display: flex;
+  flex-direction: column;
+  border-right: 4px #333 solid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-div {
+  /* background-color: beige !important; */
+}
+
+.imgAndStandings-div {
+  width: 100%;
+  /* background-color: beige !important; */
+  display: flex;
+}
+
+.img-div {
+  width: 50%;
+  padding: 30px;
+}
+
+.img-div img {
+  width: 100%;
+}
+
+.standings {
+  width: 50%;
+  padding: 30px;
+  /* background-color: beige !important; */
+}
+
+.pilots-div {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}
+
+.pilot {
+  /* background-color: red; */
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;  
+  cursor:pointer
+}
+
+.pilot div:first-child {  
+  width: 60%;
+}
+
+.pilot div:nth-child(2){  
+  width: 40%;
+}
+
+.pilot{
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
+}
+
+.gold-background {
+  background-color: gold;
+  font-size: 24px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.silver-background {
+  background-color: #C0C0C0;
+  font-size: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+
+}
+
+.bronze-background {
+  background-color: #CD7F32; 
+  font-size: 18px;
+  border-radius: 6px;
+  font-weight: bold;
+}

@@ -1,0 +1,26 @@
+<header class="header">
+
+  <div class="left-div">
+    <div class="img-div">
+      <a href="main/">
+        <img src="../../../assets/F3.svg.png" alt="logo">
+      </a>
+    </div>
+
+    <div class="aHref-div">
+      <a routerLinkActive="active" routerLink="main/availableCircuits">Available Circuits</a>
+      <a routerLinkActive="active" routerLink="main/selectCircuits" *ngIf="loggedUser.role!=='full'">Select Circuits</a>
+      <a routerLinkActive="active" routerLink="main/comments">Comments</a>
+     
+      <a routerLinkActive="active" routerLink="main/drivers" *ngIf="loggedUser.role==='full'">Drivers stats</a>
+      <a routerLinkActive="active" routerLink="main/circuitsStats" *ngIf="loggedUser.role==='full'">Circuits stats</a>
+      <a routerLinkActive="active" routerLink="main/seeYourProfile">See your profile</a>
+    </div>
+  </div>
+
+  <div class="user-div">
+    <!--. <p>Welcome Logged user</p> -->
+    <p>Welcome {{loggedUser.name}}</p>
+    <button (click)="logoutButton()">Logout</button>
+  </div>
+</header>

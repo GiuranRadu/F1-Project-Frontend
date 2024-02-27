@@ -1,0 +1,70 @@
+<nav class="navbar">
+  <div class="h2-div">
+    <h2>Available circuits ⬇️</h2>
+  </div>
+  <button (click)="updateUserCircuitsInDABATASE()" class="update-button" #updateButton>UPDATE IN DATABASE</button>
+  <!-- <h2> ⬇️ Circuits you participated</h2> -->
+  <h2> ⬇️ Circuits {{loggedUser.name}} participated</h2>
+</nav>
+<div class="container">
+  <div class="container2">
+
+    <!-- .LEFT DIV -->
+    <div class="left-div-container">
+      <div class="left-div" #leftDiv>
+        <div *ngFor="let circuit of availableCircuits; let i = index" #availableCircuitsDivs class="circuits-container">
+          <div class="circuit">
+            <p><span>{{circuit.name}}</span></p>
+            <p>Country: {{circuit.country}}</p>
+            <p>Length: {{circuit.circuitLength}}km</p>
+            <button (click)="selectCircuit(i)" *ngIf="!switch" class="select-button">Select</button>
+            <div *ngIf="switch && selectedCircuitIndex === i">
+              <div class="input-div">
+                <input type="number" [(ngModel)]="inputValue" placeholder="Completion time">
+                <button (click)="addToUserCircuits(circuit, i)" class="add-button">Add</button>
+                <button (click)="cancel()" class="cancel-button">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="news-container">
+        <!-- News article 1 -->
+        <div class="news-article">
+          <h2>Breaking News: Title 1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reprehenderit velit tempora, enim voluptatum
+            accusamus animi corporis dolore magnam! Quae, animi?</p>
+        </div>
+
+        <!-- News article 2 -->
+        <div class="news-article">
+          <h2>Important Update: Title 2</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reprehenderit velit tempora, enim voluptatum
+            accusamus animi corporis dolore magnam! Quae, animi?</p>
+        </div>
+
+        <!-- Add more news articles as needed -->
+
+      </div>
+    </div>
+
+
+    <!-- .RIGHT DIV -->
+    <div class="right-div">
+      <div *ngFor="let circuit of usersCircuits; let i = index">
+        <div class="circuit">
+          <p><span>{{circuit.name}}</span></p>
+          <p>Country: {{circuit.country}}</p>
+          <p>Lenght: {{circuit.circuitLength}}</p>
+          <p>Completion Time: {{circuit.completionTime}} min</p>
+          <button (click)="remove(circuit, i)" class="remove-button">❌</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">In progress...</p>
+</ngx-spinner>

@@ -1,0 +1,68 @@
+<!-- <button (click)="test()">TEST</button> -->
+
+<div class="container container1">
+
+  <div class="user-card">
+    <div class="pilot-image-div">
+      <img class="user-photo" *ngIf="clickedUser?.picture && clickedUser?.picture !== 'uploads/none.jpg'"
+        [src]="'../../../assets/users/'+ sanitizePicturePath(clickedUser?.picture)">
+      <img class="user-photo" *ngIf="clickedUser?.picture === 'uploads/none.jpg'"
+        [src]="'../../../assets/users/none.jpg'" alt="pilotPicture">
+    </div>
+    <div class="user-info">
+      <h3>Name : {{clickedUser?.name}}</h3>
+      <p>Age: {{clickedUser?.age}}</p>
+      <p>Location: {{clickedUser?.country}}</p>
+      <p>Email: {{clickedUser?.email}}</p>
+      <p>Circuits : {{clickedUser?.circuits.length}}</p>
+
+      <span> {{clickedUser?._id}}</span>
+    </div>
+  </div>
+
+  <div class="right-div">
+    <h2> Account Details </h2>
+
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">    
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="{{clickedUser?.name}}" formControlName="name">
+      </div>
+
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="{{clickedUser?.age}}" formControlName="age">
+      </div>
+
+      <div>
+        <label for="country">Select a country:</label>
+        <select id="country" formControlName="country">
+          <option value="" disabled selected> {{clickedUser?.country}} </option>
+          <option *ngFor="let country of countryList">{{ country.name }}</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="{{clickedUser?.email}}" formControlName="email">
+      </div>
+
+
+      <div class="button-div">
+        <button>Update</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- <button (click)="switchButton()" class="switchButton" #switchButtonEl>Show Circuit Component</button> -->
+</div>
+
+<div class="container container2 " #container2 >
+  <app-select-circuits [loggedUser]="clickedUser" class="hidden" ></app-select-circuits> 
+  <app-select-circuits [loggedUser]="clickedUser" ></app-select-circuits> 
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">In progress...</p>
+</ngx-spinner>

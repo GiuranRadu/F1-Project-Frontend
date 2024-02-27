@@ -1,0 +1,131 @@
+<!-- <button (click)="testButton()">TEST</button> -->
+
+<div class="container">
+
+  <!-- .LEFT DIV -->
+  <div class="left-div">
+    <div>
+      <h1>Welcome to the Best Drivers in the World - Formula 1</h1>
+      <p>Explore and keep records of your favorite circuits, share experiences, and connect with fellow Formula 1
+        enthusiasts. Whether you're a driver or a fan, this is the place for all things Formula 1!</p>
+
+    </div>
+
+
+  </div>
+
+  <!-- .RIGHT DIV -->
+  <div class="right-div">
+    <div>
+      <h1>Register</h1>
+    </div>
+    <div class="form-div">
+      <!-- <form > -->
+      <form [formGroup]="userForm" (ngSubmit)="registerUser()">
+        <!-- First name -->
+        <div class="input-div">
+          <label for="name">Name</label>
+
+          <span class="red"
+            *ngIf="!userForm.controls['name'].valid && userForm.controls['name'].touched && !userForm.controls['name'].value">Required</span>
+
+          <span class="green" *ngIf="userForm.controls['name'].valid ">Good ✅</span>
+
+          <span class="red" *ngIf="userForm.controls['name'].errors?.['pattern']">Min 3 & only letters</span>
+
+          <input type="text" id="name" name="name" formControlName="name" placeholder="Enter your name...">
+        </div>
+
+        <!-- Age -->
+        <div class="input-div">
+          <span
+            *ngIf="!userForm.controls['age'].valid && userForm.controls['age'].touched && !userForm.controls['age'].value"
+            class="red">Required</span>
+          <span *ngIf="userForm.controls['age'].dirty && userForm.controls['age'].errors?.['ageRange']" class="red">Must
+            be between 16 and 60</span>
+          <span *ngIf="userForm.controls['age'].dirty && !userForm.controls['age'].errors?.['ageRange']"
+            class="green">Good ✅</span>
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" formControlName="age" placeholder="Your age...">
+        </div>
+
+
+        <!-- Team -->
+        <div>
+          <label for="team">Team</label>
+          <select id="team" formControlName="team">
+            <option value="" disabled selected>Select a Team</option>
+            <option *ngFor="let team of teamsAvailable">{{ team }}</option>
+          </select>
+        </div>
+
+        <!-- Country -->
+        <div>
+          <label for="country">Select a country:</label>
+          <select id="country" formControlName="country">
+            <option value="" disabled selected>Select a country</option>
+            <option *ngFor="let country of countryList">{{ country.name }}</option>
+          </select>
+        </div>
+
+        <!-- Email -->
+        <div class="input-div">
+          <label for="email">Email</label>
+          <span
+            *ngIf="!userForm.controls['email'].valid && userForm.controls['email'].touched && !userForm.controls['email'].value"
+            class="red">Required</span>
+          <span *ngIf="userForm.controls['email'].dirty && userForm.controls['email'].errors?.['validMail']"
+            class="red">Invalid format</span>
+          <span *ngIf="userForm.controls['email'].dirty && !userForm.controls['email'].errors?.['validMail']"
+            class="green">Good ✅</span>
+          <input type="text" id="email" name="email" formControlName="email" placeholder="Enter your email...">
+        </div>
+
+
+        <!-- Password -->
+        <div class="input-div">
+          <label for="password">Password</label>
+          <span
+            *ngIf="!userForm.controls['password'].valid && userForm.controls['password'].touched && !userForm.controls['password'].value"
+            class="red">Required</span>
+          <span *ngIf="userForm.controls['password'].dirty && userForm.controls['password'].errors?.['validPassword']"
+            class="red">Invalid format</span>
+          <span *ngIf="userForm.controls['password'].dirty && !userForm.controls['password'].errors?.['validPassword']"
+            class="green">Good ✅</span>
+          <input type="password" id="password" name="password" formControlName="password"
+            placeholder="Enter password...">
+        </div>
+
+        <!-- Confirm password -->
+        <div class="input-div">
+          <label for="confirmPassword">Confirm password</label>
+          <span *ngIf="userForm.controls['confirmPassword'].touched && userForm.invalid" class="red">Not matching</span>
+          <span *ngIf="userForm.valid" class="green">Good ✅</span>
+          <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"
+            placeholder="Confirm password...">
+        </div>
+
+        <!-- Add Picture -->
+        <div>
+          <label for="picture" class="custom-file-upload">Add Picture</label>
+          <input type="file" id="picture" name="picture" formControlName="picture" (change)="getFile($event)">
+        </div>
+        
+        <div class="button-div">
+          <button [ngClass]="{'submit-button': userForm.valid, 'submit-button-disabled': userForm.invalid}"
+            [disabled]="userForm.invalid">Register</button>
+          <!-- <button>Register</button> -->
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="login-div">
+    <a routerLink="login" (click)="jumpToLogin()">Already registered? Click here to login</a>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Register in progress...</p>
+</ngx-spinner>

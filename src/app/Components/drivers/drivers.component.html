@@ -1,0 +1,79 @@
+<!-- <button (click)="test()">TEST</button> -->
+<div class="container">
+
+  <div class="search-div">
+    <form [formGroup]="searchForm">
+      <input type="text" placeholder="Search By Anything" formControlName="searchInput" (keyup)="onKeyUp()">
+      <button *ngIf="searchText" (click)="clear()">Clear</button>
+    </form>
+  </div>
+
+  <section class="drivers">
+
+    <div class="above-table-div">
+      <h2>All Drivers</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Country</th>
+          <th>Circuits</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let pilot of allUsers | filter : searchText,  let i = index" (click)="goToPilot(pilot._id)">
+        <!-- Add your table rows with actual data here -->
+        <tr>
+          <td>{{i+1}}</td>
+          <td>{{pilot.name}} <span>({{pilot.team}})</span></td>
+          <td>{{pilot.age}}</td>
+          <td>{{pilot.country}}</td>
+          <td> {{pilot.circuits.length}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </section>
+
+  <section class="drivers">
+
+    <div class="above-table-div">
+      <h2>Drivers Standings</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Average Time ⬇️</th>
+          <th>Circuits</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let pilot of pilotStats,  let i = index" (click)="goToPilot(pilot._id)"
+        [ngClass]="{'gold-background glow': i === 0, 'silver-background': i === 1, 'bronze-background': i === 2}">
+        <!-- Add your table rows with actual data here -->
+        <tr>
+          <td *ngIf="i === 0">🥇</td>
+          <td *ngIf="i === 1">🥈</td>
+          <td *ngIf="i === 2">🥉</td>
+          <td *ngIf="i !== 0 && i !==1 && i !==2">{{i+1}}</td>
+          <td>{{pilot.name}} <span>({{pilot.team}})</span></td>
+          <td>{{pilot.age}}</td>
+          <td>{{pilot.averageTime}} min</td>
+          <td>{{pilot.circuitsPresentAt.length }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </section>
+
+
+
+</div>

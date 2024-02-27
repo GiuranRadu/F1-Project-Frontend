@@ -1,0 +1,161 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom,
+      #090a0b 20%,
+      /* Start color at 0% */
+      #272b30 50%,
+      /* Transition to second color at 50% */
+      #090a0b 80%
+      /* End with third color at 100% */
+    );
+  overflow-x: hidden;
+}
+
+
+h1 {
+  position: relative;
+  font-size: 90px;
+  color: white;
+}
+
+p {
+  position: relative;
+  font-size: 35px;
+  color: rgb(0, 255, 183);
+  font-weight: 600;
+}
+
+
+/*! SECTION 0 */
+.sec-0 {
+  padding: 150px 300px;
+  color: white;
+  background-image: url('../../../assets/big/okx-singapore-livery-2023-tablet.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: flex-start;
+
+}
+
+
+/*! SECTION 1 */
+section .animate {
+  opacity: 0;
+  filter: blur(5px);
+  transition: 2s;
+}
+
+section.show-animate .animate {
+  opacity: 1;
+  filter: blur(0);
+  transition: 4s;
+}
+
+.sec-1 .animate {
+  transform: translateX(-100%);
+}
+
+.sec-1.show-animate .animate {
+  transform: translateX(0%);
+}
+
+.sec-1 img {
+  width: 900px;
+}
+
+
+
+
+/*! SECTION 2 */
+.sec-2 .animate {
+  transform: translateX(100%);
+}
+
+/* -> PUTEM SCRIE SI ASA ==>  .show-animate .animate  <== dar este mai putin specific */
+.sec-2.show-animate .animate {
+  transform: translateX(0);
+}
+
+.sec-2 p {
+  color: rgb(203, 30, 30);
+}
+
+.sec-2 img {
+  width: 800px;
+}
+
+
+
+/*! SECTION 3 */
+.sec-3 .animate {
+  transform: scale(0.5);
+}
+
+.sec-3.show-animate .animate {
+  transform: scale(1);
+}
+
+.sec-3 p {
+  color: rgb(203, 30, 30);
+}
+
+.sec-3 img {
+  width: 600px;
+}
+
+
+
+/*! SECTION 4 */
+
+.sec-4 {
+  background: #090a0b;
+
+}
+
+.sec-4 .showRight-animate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #090a0b;
+  transition: 1s;
+  transition-delay: calc(0.9s * var(--i));
+}
+
+.sec-4.show-animate .showRight-animate {
+  width: 0;
+}
+
+.sec-4 p {
+  color: #ff0;
+}
+
+
+
+/*! SECTION 5 */
+
+.sec-5 .animate {
+  transform: translateX(-50%);
+}
+
+.sec-5.show-animate .animate {
+  transform: translateX(0%);
+}
+
+
+.sec-5 .images img {
+  max-width: 300px;
+  margin: 0 30px;
+  transform: translateX(-250%);
+  transition-delay: calc(0.1s * var(--i))
+}
+
+.sec-5.show-animate .images img {
+  transform: translateX(20%);
+}

@@ -1,0 +1,81 @@
+<!-- <button (click)="testButton()">Test Button</button> -->
+<div class="container">
+
+  <!-- .LEFT DIV -->
+  <div class="left-side-div">
+    <div class="above-table-div">
+      <h2>Circuits</h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Circuit Length</th>
+          <th>Laps</th>
+          <th>Lap Length</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let circuit of circuits, let i = index">
+        <!-- Add your table rows with actual data here -->
+        <tr (click)="selectCircuit(circuit, i)">
+          <td>{{i+1}}</td>
+          <td>{{circuit.name}}</td>
+          <td>{{circuit.country}}</td>
+          <td>{{circuit.circuitLength}} km</td>
+          <td>{{circuit.laps}}</td>
+          <td>{{circuit.lapKmLength}} km</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- .RIGHT DIV -->
+  <div class="right-side-div">
+    <div class="above-table-div">
+      <h2>Add Circuit</h2>
+      <button *ngIf="switch" (click)="cancelButton()" class="cancel-button">❌</button>
+    </div>
+    <form [formGroup]="circuitForm" (ngSubmit)="createCircuit()">
+      <div>
+        <label>Name:</label>
+        <input type="text" formControlName="name">
+      </div>
+      <div>
+        <label for="countryDropdown">Select a country:</label>
+        <select id="countryDropdown" formControlName="country">
+          <option value="" disabled selected>Select a country</option>
+          <option *ngFor="let country of countryList">{{ country.name }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Circuit length:</label>
+        <input type="number" formControlName="circuitLength" placeholder="... must be between 300 and 700km">
+      </div>
+      <div>
+        <label>Laps:</label>
+        <input type="number" formControlName="laps" placeholder="... must be between 20 and 80">
+      </div>
+      <div>
+        <label>Lap Length:</label>
+        <input type="number" formControlName="lapKmLength" [value]="circuitForm.get('lapKmLength').value">
+      </div>
+      <div *ngIf="!switch">
+        <button class="add-button">Add Circuit</button>
+      </div>
+    </form>
+    <div *ngIf="switch" class="editdelete-div">
+      <button class="edit-button" (click)="updateCircuit()">Edit Circuit</button>
+      <button class="delete-button" (click)="deleteCircuit()">Delete Circuit</button>
+    </div>
+  </div>
+
+
+</div>
+
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">In progress...</p>
+</ngx-spinner>

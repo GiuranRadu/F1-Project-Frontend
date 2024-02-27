@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  align-items: center;
+  height: 100vh;
+  gap: 30px;
+  background-image: url('../../../assets/big/A234333_web_1920.jpg');
+  background-position: center center; 
+}
+
+h1{
+  color: white;
+}
+
+.form-div {
+  background-color: #dedede;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  margin: 0 auto;  
+  /* position: relative; */
+  opacity: 0.9;
+
+}
+
+.form-div a{
+  color:black;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.form-div a:hover{
+  padding: 5 10px;
+  background-color:  rgb(212, 17, 17);
+  color:white;
+  border-radius: 6px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.button-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color:  rgb(212, 17, 17);
+  color: #fff;
+  cursor: pointer;
+  width: 200px;
+}
+
+button:hover {
+  background-color:  rgb(217, 77, 77);
+}
+
+.register-div{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  position:fixed;
+  bottom:60px;
+  right: 0;
+
+}
+
+.register-div a{
+  background-color:  rgb(212, 17, 17);
+  padding: 4px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color:whitesmoke;  
+}
+
+.register-div  :hover{
+  background-color:  rgb(217, 77, 77);
+}

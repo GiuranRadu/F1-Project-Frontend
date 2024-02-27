@@ -1,0 +1,232 @@
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Apply the glowing effect to the element with the 'glow' class */
+.glow {
+  animation: glowing 1.5s infinite; /* Adjust the duration and other properties as needed */
+}
+
+
+.container {
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('../../../assets/red-bull-racing-rb18-1.webp');
+  z-index: -1;
+  opacity: 0.9;
+  background-repeat:no-repeat;
+  background-size: cover;  
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  
+}
+
+.navbar{
+  width: 100%;
+  height: 50px;
+  background-color: rgb(173, 57, 57);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  color: white;
+}
+
+.navbar .update-button{
+  padding: 10px 20px;
+  background-color: rgb(196, 95, 95);
+  color:white;
+  border: none;
+  font-weight: bold;
+}
+
+.navbar .update-button:hover{
+  background-color: whitesmoke;
+  color: red;
+}
+
+.left-div-container{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.left-div {
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.news-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color:  #333;
+
+}
+
+/* Style the individual news articles */
+.news-article {
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;    
+}
+
+/* Customize the appearance of the news article content */
+.news-article p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.left-div>div {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 180px;
+}
+
+.right-div {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+}
+
+.right-div>div {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.circuit {
+  background-color: #333;
+  color:white;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 140px;
+  padding: 10px;
+  line-height: 30px;
+  position: relative;
+}
+
+.circuit .remove-button{
+  background-color: white;  
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top : -10px;
+  right: -10px;
+  border-radius: 50px;
+  border: 2px solid #333;
+  transition: 0.5s;
+}
+
+.remove-button:hover{
+  scale: 1.3;
+  transition: 0.5s;
+}
+
+
+.circuit span{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.input-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-div input{
+  padding: 2px;
+  width: 60%;
+  border: none;
+}
+
+.circuit button,
+.input-div button{
+  border: none;
+  padding: 2px 4px;
+}
+
+.right-div .circuit{
+  height: 140px;
+  font-size: 12px;
+}
+
+.right-div .circuit span{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.select-button{
+  background-color:#ccc;
+  color:white;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.select-button:hover{
+  background-color:#d72626;
+}
+
+.add-button{
+  background-color:#d72626;
+  color:white;
+  width: 25%;
+  transition: 0.5s;
+}
+
+.cancel-button{
+  width: 25%;  
+}
+
+.add-button:hover,
+.cancel-button:hover{
+  scale: 1.2;
+  transition: 0.5s;
+
+}

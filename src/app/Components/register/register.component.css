@@ -1,0 +1,177 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding-top: 80px;
+  height: 140vh;  
+  /* width: 80%; */
+  /* margin: 0 auto; */
+  background-image: url("../../../assets/drivers.jpg");
+  background-size: contain;
+  background-repeat: none;
+  background-position: center center;
+}
+
+.left-div,
+.right-div {
+  width: 50%;
+}
+
+.left-div{
+  display:flex;
+  justify-content: center;
+ 
+}
+
+.left-div div{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.left-div p {
+  margin-top: 30px;
+  color:white;
+}
+
+.right-div {
+  display: flex;
+  flex-direction: column;
+  gap:30px
+}
+
+.form-div {
+  background-color: #dedede;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+h1 {
+  text-align: center;
+  Color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+select {
+  width: calc(100% - 10px);
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  background-color: white;
+}
+
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffff00;
+  color: black;
+  cursor: pointer;
+  width: 200px;
+}
+
+
+.submit-button-disabled{   
+  background-color: grey;
+  color: rgb(171, 171, 171);
+  cursor:not-allowed;  
+}
+
+.submit-button:hover {
+  background-color: #b3b300;
+}
+
+.login-div {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  position: fixed;
+  bottom: 60px;
+  left: 30px;
+}
+
+.login-div a {
+  background-color: #ffff00;
+  padding: 4px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+}
+
+.login-div :hover {
+  background-color: #b3b300;
+}
+
+.custom-file-upload {
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #f0f0f0;
+  transition: background-color 1s ease;
+}
+
+/* Hover effect for the custom button */
+.custom-file-upload:hover {
+  background-color: #3a3a3a;
+  color: white
+}
+
+
+.red{
+  color:red;
+}
+
+.green{
+  color:green;
+}
+
+span{
+  background-color: lightgrey;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.input-div {
+  position: relative;
+}
+
+.input-div span{
+  position: absolute;
+  right: 0;
+  top: -4px;
+}
+
+

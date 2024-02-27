@@ -1,0 +1,69 @@
+<!-- <button (click)="test()">TEST</button> -->
+
+<div class="container">
+
+  <!-- .LEFT DIV -->
+  <div class="left-div"  *ngIf="myComments.length!==0">
+    <div class="comment" *ngFor="let comment of myComments ">
+      
+      <div class="user-info">
+        <h2>{{comment.creatorName}}</h2>
+        <button *ngIf="isTrashOpen" (click)="deleteComment(comment._id)" class="delete-button">Delete</button>
+        <p>{{calculateRelativeTime(comment.createdAt)}}</p>
+      </div>
+      <div class="comment-info">
+        {{comment.info}}
+        <div class="circuit-name" (click)="editComment(comment)">
+          {{ findCircuitName(comment.circuitId) }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- .RIGHT DIV -->
+  <div class="right-div">
+
+    <div class="right-upper-div">
+      <div>
+        <h1>Add Comment</h1>
+      </div>
+      <div class="form-div">
+        <!-- <form [formGroup]="commentForm" (ngSubmit)="addComment()"> -->
+        <form [formGroup]="commentForm">
+          <div>
+            <label for="circuit">Select a circuit</label>
+            <select id="circuit" formControlName="circuitId">
+              <option value="" disabled selected>Select a circuit:</option>
+              <option *ngFor="let circuit of allDbCircuits" [value]="circuit.id">{{circuit.name}}</option>
+            </select>
+          </div>
+          <div>
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" rows="4" required formControlName="info"></textarea>
+          </div>
+          <div>
+            <button *ngIf="!isEditingComment" class="add-comment-button" (click)="addComment()">Add Comment</button>
+            <button *ngIf="isEditingComment" class="update-comment-button" (click)="updateComment()">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="trash-div">
+      <button (click)="openTrash()" #openTrashButton class="openTrash-button">OPEN TRASH</button>
+      <div *ngIf="isTrashOpen">
+        <!-- <p >TRASH OPEN</p> -->
+        <img src="../../../assets/Small/trash-open.png" class="trash-img">
+      </div>
+      <div *ngIf="!isTrashOpen">
+        <!-- <p >CLOSED</p> -->
+        <img src="../../../assets/Small/trash-closed.png" class="trash-img">
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">In progress...</p>
+</ngx-spinner>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div>
+    <h1>Login</h1>
+  </div>
+  <div class="form-div">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" formControlName="email">
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" formControlName="password">
+      </div>
+      <div class="button-div">
+        <button>Login</button>
+      </div>
+      <div>
+        <a href="login/forgotPassword">Forgot Password</a>
+      </div>
+    </form>
+  </div>
+  <div class="register-div">
+    <a routerLink="register" (click)="jumpToRegister()">Don't have an account? Click here to register</a>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Logging in...</p>
+</ngx-spinner>
+

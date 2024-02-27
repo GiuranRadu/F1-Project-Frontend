@@ -1,0 +1,14 @@
+<body>
+
+  <div class="confirm-dialog-div" cdkTrapFocus>
+    <h1 mat-dialog-title>{{ data.title }}</h1>
+    <div mat-dialog-content>
+      <p>{{ data.message }}</p>
+    </div>
+    <div mat-dialog-actions class="buttons-div">
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="yes-button">Yes</button>
+    </div>
+  </div>
+
+</body>

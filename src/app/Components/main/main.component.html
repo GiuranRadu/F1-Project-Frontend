@@ -1,0 +1,32 @@
+<!-- <button (click)="test()">TEST</button> -->
+<div class="container">
+  <div class="container2">
+    <div class="teams" *ngFor="let team of teams">
+      <h1>Team Name: {{ team.name }}</h1>
+      <div class="team">
+        <div class="teamPicture slideInLeft" 
+          [style.background-image]="sanitizedBackgroundImageUrl(backgroundImageUrl + team.name + '.jpg')">
+        </div>
+        <h2>Pilots</h2>
+        <div class="pilots-div">
+          <div class="pilot-container" *ngFor="let pilot of team.pilots">
+            <div class="pilot" (click)="goToPilot(pilot._id)">
+              <div class="pilot-image-div" >
+                <!-- <img src="../../../assets/Unknown_person.jpg + {{pilot.picture}}" alt="pilotPicture"> -->
+                <img *ngIf="pilot.picture" [src]="'../../../assets/users/'+ sanitizePicturePath(pilot.picture)"
+                  alt="pilotPicture">
+                <img *ngIf="!pilot.picture" src="../../../assets/users/none.jpg" alt="pilotPicture">
+              </div>
+              <div class="pilotInfo" >
+                <p><strong>{{ pilot.name }}</strong></p>
+                <p>Age: {{ pilot.age }}</p>
+                <p>Country: {{ pilot.country }}</p>         
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

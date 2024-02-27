@@ -1,0 +1,49 @@
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+  padding: 20px 50px;
+  height: 70px;
+  position:fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.left-div {
+  height: 50px;
+}
+
+.img-div {
+  height: 100%;
+}
+
+.img-div img {
+  height: 100%;
+}
+
+.aHref-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 250px;
+  height: 100%;
+  align-items: center;
+}
+
+.aHref-div a{
+  color: white;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.aHref-div a:hover{
+  background-color: white;
+  color: red
+}
+
+.active{
+  background-color:  rgb(212, 17, 17);
+  color :  white;  
+}
